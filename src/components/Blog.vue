@@ -1,21 +1,19 @@
 <template>
-    <!-- <div class="blog row ms-1 mt-2"> -->
-        <div
-        class="blog row ms-1 mt-2" 
-        data-bs-toggle="modal" 
-        data-bs-target="#modalId"
-        @click="setActive">
-      Launch
-    </div>
-        <div class="col-6 rounded shadow p-2 mt-2">
-            {{blog.title}}
+    <div
+    class="blog row ms-1 " 
+    data-bs-toggle="modal" 
+    data-bs-target="#blog-modal"
+    @click="setActive">
+        <div class=" rounded shadow p-2 mt-2">
+            {{blog.title}} | {{blog.creator.name}}
         </div>
-
-    <!-- </div> -->
+    </div>
 </template>
 
 
 <script>
+import { blogsService } from '../services/BlogsService'
+
 export default {
     props: {
         blog: {
@@ -23,8 +21,12 @@ export default {
             required: true
         },
     },
-    setup(){
-        return {}
+    setup(props){
+        return {
+            setActive(){
+                blogsService.setActive(props.blog)
+            }
+        }
     }
 }
 </script>
@@ -33,7 +35,7 @@ export default {
 <style lang="scss" scoped>
 
 .blog {
-  min-height: 20vh;
+  min-height: 10vh;
   transition: all 0.12s ease;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
 }

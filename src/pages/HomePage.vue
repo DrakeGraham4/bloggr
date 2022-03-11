@@ -1,7 +1,7 @@
 <template>
-  <div class=" container-fluid home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
+  <div class="container-fluid home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
     <div class="row text-center">
-      <div v-for="b in blogs" :key="b.id" class="col-md-4">
+      <div v-for="b in blogs" :key="b.id" class="col-md-3">
         <Blog :blog="b"/>
       </div>
     </div>

@@ -8,13 +8,10 @@
     role="dialog" 
     aria-labelledby="modelTitleId" 
     aria-hidden="true">
-
         <div class="modal-dialog modal-lg" 
         role="document">
-
             <div 
-            class="modal-content bg-transparent border-0">
-
+            class="modal-content border-0">
                 <div class="modal-header">
                     <h5 class="modal-title">
                         <slot name="title"></slot>
@@ -22,11 +19,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Body
+                    <slot name="body"></slot>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <slot name="footer"></slot>
                 </div>
             </div>
         </div>

@@ -5,7 +5,10 @@
   <main>
     <router-view />
   </main>
- 
+  <Modal id="blog-modal">
+    <template #title> {{activeBlog.title}} | {{activeBlog.creator.name}}</template>
+    <template #body>{{activeBlog.body}}</template>
+  </Modal>
 </template>
 
 <script>
@@ -15,7 +18,8 @@ export default {
   name: 'App',
   setup() {
     return {
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      activeBlog: computed(() => AppState.activeBlog),
     }
   }
 }
